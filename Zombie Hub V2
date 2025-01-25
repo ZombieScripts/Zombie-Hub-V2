@@ -34,7 +34,7 @@ local Window = Rayfield:CreateWindow({
         Key = "zombie"
     },
     Theme = {
-        TextColor = Color3.fromRGB(240, 240, 240),  -- Keeping text white for contrast
+        TextColor = Color3.fromRGB(240, 240, 240),
         Background = Color3.fromRGB(0, 128, 0),  -- Dark green background
         Topbar = Color3.fromRGB(0, 100, 0),  -- Darker green for the top bar
         Shadow = Color3.fromRGB(20, 20, 20),
@@ -42,14 +42,12 @@ local Window = Rayfield:CreateWindow({
         NotificationBackground = Color3.fromRGB(20, 20, 20),
         NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
 
-        -- Darker green for tabs
         TabBackground = Color3.fromRGB(0, 100, 0),
         TabStroke = Color3.fromRGB(85, 85, 85),
         TabBackgroundSelected = Color3.fromRGB(210, 210, 210),
         TabTextColor = Color3.fromRGB(240, 240, 240),
         SelectedTabTextColor = Color3.fromRGB(50, 50, 50),
 
-        -- Darker green for buttons and elements
         ElementBackground = Color3.fromRGB(0, 100, 0),
         ElementBackgroundHover = Color3.fromRGB(0, 120, 0),
         SecondaryElementBackground = Color3.fromRGB(25, 25, 25),
@@ -103,12 +101,6 @@ GameTab:CreateButton({
     end,
 })
 GameTab:CreateButton({
-    Name = "🐱 Cat Piece 🐱",
-    Callback = function()
-        loadstring(game:HttpGet('https://tinyurl.com/Zombie-Hub-Cat-Piece'))()
-    end,
-})
-GameTab:CreateButton({
     Name = "🔪 MVSD 🔫",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Aoky-SS/Roblox/refs/heads/main/Games%20/MVSD.lua'))()
@@ -120,35 +112,69 @@ GameTab:CreateButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AdminEvilDRagon/Mad-Lads-V6-Revamp-GUI/refs/heads/main/Mad-Lads%20V6%20Revamp%20GUI", true))()
     end,
 })
+GameTab:CreateButton({
+    Name = "🐱 Mic Up Kitty 🐱",  -- New button for the Kitty script
+    Callback = function()
+        loadstring(game:HttpGet('https://whimper.xyz/kitty'))()
+    end,
+})
 
-local UniversalTab = Window:CreateTab("Universal", 4483362458) -- Universal tab
-UniversalTab:CreateButton({
-    Name = "💃 Emotes 💃",
+local CatPieceTab = Window:CreateTab("Cat Piece", 4483362458) -- Cat Piece tab
+CatPieceTab:CreateButton({
+    Name = "🐱 Cat Piece 🐱",
     Callback = function()
-        loadstring(game:HttpGet('https://pastebin.com/raw/qHFSvCKe'))()
+        loadstring(game:HttpGet('https://tinyurl.com/Zombie-Hub-Cat-Piece'))()
     end,
 })
-UniversalTab:CreateButton({
-    Name = "🔮 Illusion 🔮",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
+
+local MiscTab = Window:CreateTab("Misc", 4483362458) -- Misc tab
+local speedSlider
+local jumpSlider
+local infiniteJumpToggle
+
+-- Speed Slider
+MiscTab:CreateSlider({
+    Name = "Speed",
+    Min = 16,
+    Max = 100,
+    Default = 16,
+    Increment = 1,
+    Callback = function(value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
     end,
 })
-UniversalTab:CreateButton({
-    Name = "🗺️ Nami Hub 🗺️",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/cracklua/cracks/m/dkhub"))()
+
+-- Jump Power Slider
+MiscTab:CreateSlider({
+    Name = "Jump Power",
+    Min = 50,
+    Max = 250,
+    Default = 50,
+    Increment = 5,
+    Callback = function(value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
     end,
 })
-UniversalTab:CreateButton({
-    Name = "⚙️ Empty Tools ⚙️",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/likelysmith/EmptyTools/main/script"))()
+
+-- Infinite Jump Toggle
+MiscTab:CreateToggle({
+    Name = "Infinite Jump",
+    Default = false,
+    Callback = function(state)
+        infiniteJumpToggle = state
+        if infiniteJumpToggle then
+            game:GetService("UserInputService").JumpRequest:Connect(function()
+                game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Physics)
+                game.Players.LocalPlayer.Character.Humanoid:Move(Vector3.new(0, 100, 0))
+            end)
+        else
+            -- Disable infinite jump behavior
+        end
     end,
 })
-UniversalTab:CreateButton({
-    Name = "🌌 Infinite Yield 🌌",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-    end,
-})
+
+local CreditsTab = Window:CreateTab("Credits", 4483362458) -- Credits tab
+CreditsTab:CreateLabel("Credits to the creators of all scripts used here!")
+CreditsTab:CreateLabel("Zombie Hub V2 by Zombie who the fuck else")
+CreditsTab:CreateLabel("undead ass niggas")
+
