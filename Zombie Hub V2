@@ -151,4 +151,9 @@ UniversalTab:CreateButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
     end,
 })
-
+UniversalTab:CreateButton({
+    Name = "⚠️ Fe Sus Hub ⚠️",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/RamDRuomFirirueieiid8didj/refs/heads/main/Fe%20sus%20hub"))()
+    end,
+})
