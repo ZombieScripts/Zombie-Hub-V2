@@ -1,0 +1,149 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local darkGreen = Color3.fromRGB(0, 128, 0)  -- Dark Green Color
+local darkerGreen = Color3.fromRGB(0, 100, 0)  -- Darker Green for buttons, tabs, and drag bar
+
+local Window = Rayfield:CreateWindow({
+    Name = "🧟‍♂️ Zombie Hub V2 🧟‍♂️",
+    LoadingTitle = "Zombie Hub V2 Loading...",
+    LoadingSubtitle = "Please wait",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = nil, 
+        FileName = "ZombieHubConfig"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "", 
+        RememberJoins = false 
+    },
+    KeySystem = true,
+    KeySettings = {
+        Title = "Zombie Hub V2",
+        Subtitle = "Enter Key",
+        Note = "The key is zombie",
+        FileName = "",
+        SaveKey = false,
+        GrabKeyFromSite = false,
+        Key = "zombie"
+    },
+    -- Background set to dark green
+    Theme = {
+        TextColor = Color3.fromRGB(240, 240, 240),  -- Keeping text white for contrast
+        Background = darkGreen,  -- Dark green background
+        Topbar = darkerGreen,  -- Darker green for the top bar
+        Shadow = Color3.fromRGB(20, 20, 20),
+
+        NotificationBackground = Color3.fromRGB(20, 20, 20),
+        NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
+
+        -- Darker green for tabs
+        TabBackground = darkerGreen,
+        TabStroke = Color3.fromRGB(85, 85, 85),
+        TabBackgroundSelected = Color3.fromRGB(210, 210, 210),
+        TabTextColor = Color3.fromRGB(240, 240, 240),
+        SelectedTabTextColor = Color3.fromRGB(50, 50, 50),
+
+        -- Darker green for buttons and elements
+        ElementBackground = darkerGreen,
+        ElementBackgroundHover = Color3.fromRGB(0, 120, 0),
+        SecondaryElementBackground = Color3.fromRGB(25, 25, 25),
+        ElementStroke = Color3.fromRGB(50, 50, 50),
+        SecondaryElementStroke = Color3.fromRGB(40, 40, 40),
+
+        SliderBackground = Color3.fromRGB(50, 138, 220),
+        SliderProgress = Color3.fromRGB(50, 138, 220),
+        SliderStroke = Color3.fromRGB(58, 163, 255),
+
+        ToggleBackground = Color3.fromRGB(30, 30, 30),
+        ToggleEnabled = Color3.fromRGB(0, 146, 214),
+        ToggleDisabled = Color3.fromRGB(100, 100, 100),
+        ToggleEnabledStroke = Color3.fromRGB(0, 170, 255),
+        ToggleDisabledStroke = Color3.fromRGB(125, 125, 125),
+        ToggleEnabledOuterStroke = Color3.fromRGB(100, 100, 100),
+        ToggleDisabledOuterStroke = Color3.fromRGB(65, 65, 65),
+
+        DropdownSelected = Color3.fromRGB(40, 40, 40),
+        DropdownUnselected = Color3.fromRGB(30, 30, 30),
+
+        InputBackground = Color3.fromRGB(30, 30, 30),
+        InputStroke = Color3.fromRGB(65, 65, 65),
+        PlaceholderColor = Color3.fromRGB(178, 178, 178)
+    }
+})
+
+local GameTab = Window:CreateTab("Game", 4483362458) -- Game tab
+GameTab:CreateButton({
+    Name = "🔫 Gunfight Arena 🔪",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/Arena/main/Fight"))()
+    end,
+})
+GameTab:CreateButton({
+    Name = "🎵 Funky Friday 🎵",
+    Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/dcyuEgyK'))()
+    end,
+})
+GameTab:CreateButton({
+    Name = "⚡ Legends of Speed ⚡",
+    Callback = function()
+        loadstring(game:HttpGet(("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Legends%20Of%20Speed/Script.lua"), true))()
+    end,
+})
+GameTab:CreateButton({
+    Name = "🚽 Skibidi Hub 🚽",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/motonik-heldoaxxyy/Project-9393-_-2-8-_-93-_04-2-9-38-8_-8-/main/Skibidi%20Hub'))()
+    end,
+})
+GameTab:CreateButton({
+    Name = "🐱 Cat Piece 🐱",
+    Callback = function()
+        loadstring(game:HttpGet('https://tinyurl.com/Zombie-Hub-Cat-Piece'))()
+    end,
+})
+GameTab:CreateButton({
+    Name = "🔪 MVSD 🔫",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Aoky-SS/Roblox/refs/heads/main/Games%20/MVSD.lua'))()
+    end,
+})
+GameTab:CreateButton({
+    Name = "🌆 Mad City V6 🌆",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AdminEvilDRagon/Mad-Lads-V6-Revamp-GUI/refs/heads/main/Mad-Lads%20V6%20Revamp%20GUI", true))()
+    end,
+})
+
+local UniversalTab = Window:CreateTab("Universal", 4483362458) -- Universal tab
+UniversalTab:CreateButton({
+    Name = "💃 Emotes 💃",
+    Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/qHFSvCKe'))()
+    end,
+})
+UniversalTab:CreateButton({
+    Name = "🔮 Illusion 🔮",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
+    end,
+})
+UniversalTab:CreateButton({
+    Name = "🗺️ Nami Hub 🗺️",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cracklua/cracks/m/dkhub"))()
+    end,
+})
+UniversalTab:CreateButton({
+    Name = "⚙️ Empty Tools ⚙️",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/likelysmith/EmptyTools/main/script"))()
+    end,
+})
+UniversalTab:CreateButton({
+    Name = "🌌 Infinite Yield 🌌",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end,
+})
