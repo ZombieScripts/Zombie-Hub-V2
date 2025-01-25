@@ -1,7 +1,13 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local allowedUserId = 6158741138  -- Your UserId
+local currentUserId = game.Players.LocalPlayer.UserId  -- Get the current player's UserId
 
-local darkGreen = Color3.fromRGB(0, 128, 0)  -- Dark Green Color
-local darkerGreen = Color3.fromRGB(0, 100, 0)  -- Darker Green for buttons, tabs, and drag bar
+local keyRequired = true  -- Default is that the key is required
+
+if currentUserId == allowedUserId then
+    keyRequired = false  -- If the player is allowed, they don't need the key
+end
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
     Name = "🧟‍♂️ Zombie Hub V2 🧟‍♂️",
@@ -17,7 +23,7 @@ local Window = Rayfield:CreateWindow({
         Invite = "", 
         RememberJoins = false 
     },
-    KeySystem = true,
+    KeySystem = keyRequired,  -- Set KeySystem based on whether the player is allowed
     KeySettings = {
         Title = "Zombie Hub V2",
         Subtitle = "Enter Key",
@@ -27,25 +33,24 @@ local Window = Rayfield:CreateWindow({
         GrabKeyFromSite = false,
         Key = "zombie"
     },
-    -- Background set to dark green
     Theme = {
         TextColor = Color3.fromRGB(240, 240, 240),  -- Keeping text white for contrast
-        Background = darkGreen,  -- Dark green background
-        Topbar = darkerGreen,  -- Darker green for the top bar
+        Background = Color3.fromRGB(0, 128, 0),  -- Dark green background
+        Topbar = Color3.fromRGB(0, 100, 0),  -- Darker green for the top bar
         Shadow = Color3.fromRGB(20, 20, 20),
 
         NotificationBackground = Color3.fromRGB(20, 20, 20),
         NotificationActionsBackground = Color3.fromRGB(230, 230, 230),
 
         -- Darker green for tabs
-        TabBackground = darkerGreen,
+        TabBackground = Color3.fromRGB(0, 100, 0),
         TabStroke = Color3.fromRGB(85, 85, 85),
         TabBackgroundSelected = Color3.fromRGB(210, 210, 210),
         TabTextColor = Color3.fromRGB(240, 240, 240),
         SelectedTabTextColor = Color3.fromRGB(50, 50, 50),
 
         -- Darker green for buttons and elements
-        ElementBackground = darkerGreen,
+        ElementBackground = Color3.fromRGB(0, 100, 0),
         ElementBackgroundHover = Color3.fromRGB(0, 120, 0),
         SecondaryElementBackground = Color3.fromRGB(25, 25, 25),
         ElementStroke = Color3.fromRGB(50, 50, 50),
