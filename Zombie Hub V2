@@ -101,6 +101,12 @@ GameTab:CreateButton({
     end,
 })
 GameTab:CreateButton({
+    Name = "🐱 Cat Piece 🐱",
+    Callback = function()
+        loadstring(game:HttpGet('https://tinyurl.com/Zombie-Hub-Cat-Piece'))()
+    end,
+})
+GameTab:CreateButton({
     Name = "🔪 MVSD 🔫",
     Callback = function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/Aoky-SS/Roblox/refs/heads/main/Games%20/MVSD.lua'))()
@@ -112,21 +118,8 @@ GameTab:CreateButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AdminEvilDRagon/Mad-Lads-V6-Revamp-GUI/refs/heads/main/Mad-Lads%20V6%20Revamp%20GUI", true))()
     end,
 })
-GameTab:CreateButton({
-    Name = "🐱 Mic Up Kitty 🐱",  -- New button for the Kitty script
-    Callback = function()
-        loadstring(game:HttpGet('https://whimper.xyz/kitty'))()
-    end,
-})
 
-local CatPieceTab = Window:CreateTab("Cat Piece", 4483362458) -- Cat Piece tab
-CatPieceTab:CreateButton({
-    Name = "🐱 Cat Piece 🐱",
-    Callback = function()
-        loadstring(game:HttpGet('https://tinyurl.com/Zombie-Hub-Cat-Piece'))()
-    end,
-})
-
+-- Universal Tab
 local UniversalTab = Window:CreateTab("Universal", 4483362458) -- Universal tab
 UniversalTab:CreateButton({
     Name = "💃 Emotes 💃",
@@ -158,3 +151,4 @@ UniversalTab:CreateButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
     end,
 })
+
