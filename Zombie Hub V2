@@ -15,13 +15,13 @@ local Window = Rayfield:CreateWindow({
     LoadingSubtitle = "Please wait",
     ConfigurationSaving = {
         Enabled = true,
-        FolderName = nil,
+        FolderName = nil, 
         FileName = "ZombieHubConfig"
     },
     Discord = {
         Enabled = false,
-        Invite = "",
-        RememberJoins = false
+        Invite = "", 
+        RememberJoins = false 
     },
     KeySystem = keyRequired,  -- Set KeySystem based on whether the player is allowed
     KeySettings = {
@@ -75,7 +75,8 @@ local Window = Rayfield:CreateWindow({
     }
 })
 
-local GameTab = Window:CreateTab("🎮 Game", 4483362458) -- Game tab
+-- Game Tab
+local GameTab = Window:CreateTab("🎮 Game", 4483362458)
 GameTab:CreateButton({
     Name = "🔫 Gunfight Arena 🔪",
     Callback = function()
@@ -119,7 +120,8 @@ GameTab:CreateButton({
     end,
 })
 
-local UniversalTab = Window:CreateTab("🌍 Universal", 4483362458) -- Universal tab
+-- Universal Tab
+local UniversalTab = Window:CreateTab("🌍 Universal", 4483362458)
 UniversalTab:CreateButton({
     Name = "💃 Emotes 💃",
     Callback = function()
@@ -133,32 +135,78 @@ UniversalTab:CreateButton({
     end,
 })
 UniversalTab:CreateButton({
-    Name = "🔮 Illusion 🔮",
+    Name = "🤸‍♂️ FE Flip 🤸‍♂️",  -- FE Flip button with emoji
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe/main/obf_11l7Y131YqJjZ31QmV5L8pI23V02b3191sEg26E75472Wl78Vi8870jRv5txZyL1.lua.txt"))()
-    end,
-})
-UniversalTab:CreateButton({
-    Name = "🗺️ Nami Hub 🗺️",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/cracklua/cracks/m/dkhub"))()
-    end,
-})
-UniversalTab:CreateButton({
-    Name = "⚙️ Empty Tools ⚙️",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/likelysmith/EmptyTools/main/script"))()
-    end,
-})
-UniversalTab:CreateButton({
-    Name = "🌌 Infinite Yield 🌌",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-    end,
-})
-UniversalTab:CreateButton({
-    Name = "⚠️ Fe Sus Hub ⚠️",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/cnPthPiGon/RamDRuomFirirueieiid8didj/refs/heads/main/Fe%20sus%20hub"))()
+        --[[ 
+            WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+        ]]
+        wait(5)
+
+        local ver = "2.00"
+        local scriptname = "feFlip"
+
+        local FrontflipKey = Enum.KeyCode.Z
+        local BackflipKey = Enum.KeyCode.X
+        local AirjumpKey = Enum.KeyCode.C
+
+        local ca = game:GetService("ContextActionService")
+        local zeezy = game:GetService("Players").LocalPlayer
+        local h = 0.0174533
+        local antigrav
+
+        function zeezyFrontflip(act, inp, obj)
+            if inp == Enum.UserInputState.Begin then
+                zeezy.Character.Humanoid:ChangeState("Jumping")
+                wait()
+                zeezy.Character.Humanoid.Sit = true
+                for i = 1, 360 do
+                    delay(i / 720, function()
+                        zeezy.Character.Humanoid.Sit = true
+                        zeezy.Character.HumanoidRootPart.CFrame = zeezy.Character.HumanoidRootPart.CFrame * CFrame.Angles(-h, 0, 0)
+                    end)
+                end
+                wait(0.55)
+                zeezy.Character.Humanoid.Sit = false
+            end
+        end
+
+        function zeezyBackflip(act, inp, obj)
+            if inp == Enum.UserInputState.Begin then
+                zeezy.Character.Humanoid:ChangeState("Jumping")
+                wait()
+                zeezy.Character.Humanoid.Sit = true
+                for i = 1, 360 do
+                    delay(i / 720, function()
+                        zeezy.Character.Humanoid.Sit = true
+                        zeezy.Character.HumanoidRootPart.CFrame = zeezy.Character.HumanoidRootPart.CFrame * CFrame.Angles(h, 0, 0)
+                    end)
+                end
+                wait(0.55)
+                zeezy.Character.Humanoid.Sit = false
+            end
+        end
+
+        function zeezyAirjump(act, inp, obj)
+            if inp == Enum.UserInputState.Begin then
+                zeezy.Character:FindFirstChildOfClass'Humanoid':ChangeState("Seated")
+                wait()
+                zeezy.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")    
+            end
+        end
+
+        ca:BindAction("zeezyFrontflip", zeezyFrontflip, false, FrontflipKey)
+        ca:BindAction("zeezyBackflip", zeezyBackflip, false, BackflipKey)
+        ca:BindAction("zeezyAirjump", zeezyAirjump, false, AirjumpKey)
+
+        print(scriptname .. " " .. ver .. " loaded successfully")
+        print("made by Zeezy#7203")
+
+        local notifSound = Instance.new("Sound",workspace)
+        notifSound.PlaybackSpeed = 1.5
+        notifSound.Volume = 0.15
+        notifSound.SoundId = "rbxassetid://170765130"
+        notifSound.PlayOnRemove = true
+        notifSound:Destroy()
+        game.StarterGui:SetCore("SendNotification", {Title = "feFlip", Text = "feFlip loaded successfully!", Icon = "rbxassetid://505845268", Duration = 5, Button1 = "Okay"})
     end,
 })
