@@ -15,13 +15,13 @@ local Window = Rayfield:CreateWindow({
     LoadingSubtitle = "Please wait",
     ConfigurationSaving = {
         Enabled = true,
-        FolderName = nil, 
+        FolderName = nil,
         FileName = "ZombieHubConfig"
     },
     Discord = {
         Enabled = false,
-        Invite = "", 
-        RememberJoins = false 
+        Invite = "",
+        RememberJoins = false
     },
     KeySystem = keyRequired,  -- Set KeySystem based on whether the player is allowed
     KeySettings = {
@@ -75,7 +75,7 @@ local Window = Rayfield:CreateWindow({
     }
 })
 
-local GameTab = Window:CreateTab("Game", 4483362458) -- Game tab
+local GameTab = Window:CreateTab("🎮 Game", 4483362458) -- Game tab
 GameTab:CreateButton({
     Name = "🔫 Gunfight Arena 🔪",
     Callback = function()
@@ -91,7 +91,7 @@ GameTab:CreateButton({
 GameTab:CreateButton({
     Name = "⚡ Legends of Speed ⚡",
     Callback = function()
-        loadstring(game:HttpGet(("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Legends%20Of%20Speed/Script.lua"), true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Legends%20Of%20Speed/Script.lua"))()
     end,
 })
 GameTab:CreateButton({
@@ -115,16 +115,21 @@ GameTab:CreateButton({
 GameTab:CreateButton({
     Name = "🌆 Mad City V6 🌆",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/AdminEvilDRagon/Mad-Lads-V6-Revamp-GUI/refs/heads/main/Mad-Lads%20V6%20Revamp%20GUI", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AdminEvilDRagon/Mad-Lads-V6-Revamp-GUI/refs/heads/main/Mad-Lads%20V6%20Revamp%20GUI"))()
     end,
 })
 
--- Universal Tab
-local UniversalTab = Window:CreateTab("Universal", 4483362458) -- Universal tab
+local UniversalTab = Window:CreateTab("🌍 Universal", 4483362458) -- Universal tab
 UniversalTab:CreateButton({
     Name = "💃 Emotes 💃",
     Callback = function()
         loadstring(game:HttpGet('https://pastebin.com/raw/qHFSvCKe'))()
+    end,
+})
+UniversalTab:CreateButton({
+    Name = "🛠️ System Broken 🛠️",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
     end,
 })
 UniversalTab:CreateButton({
